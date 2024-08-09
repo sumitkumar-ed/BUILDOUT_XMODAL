@@ -1,22 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+import XModal from "./components/XModal/XModal";
+import Button from "./components/Button/Button";
 import './App.css';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>User Details Modal</h1>
+        <Button onClick={handleOpenModal}>Open Form</Button>
+        <XModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </header>
     </div>
   );
